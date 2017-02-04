@@ -44,7 +44,7 @@ module.exports = function(config) {
 
     plugins: [
         "karma-babel-preprocessor",
-        'karma-chrome-launcher',
+        'karma-firefox-launcher',
         'karma-jasmine',
         'karma-jasmine-matchers',
         "karma-systemjs"
@@ -84,12 +84,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

@@ -1,9 +1,11 @@
+[![Build Status](https://travis-ci.org/jean-andre-gauthier/xmlschema.js.svg?branch=master)](https://travis-ci.org/jean-andre-gauthier/xmlschema.js)
+
 # xmlschema.js
-Implementation of XML schema validation in Javascript. 
+Implementation of XML schema validation in Javascript.
 
 **Update** namespaces & xs:import are now supported.
 
-This supports most of the basic functions of xml schema validation. 
+This supports most of the basic functions of xml schema validation.
 Some features of the spec may not be implemented yet, these features may be provided in a future release.
 If you would like to report a bug or even contribute to the project, contact me: pwardrip@gmail.com
 
