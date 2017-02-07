@@ -4,3 +4,8 @@ demo
 index.html
 Gruntfile.js
 *.tgz
+test
+.travis.yml
+bower.json
+karma.conf.js
+system.conf.js

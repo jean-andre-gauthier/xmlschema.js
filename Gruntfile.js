@@ -5,8 +5,8 @@ module.exports = function(grunt) {
 
         watch: {
             files: [ "source/*.js" ],
-            tasks: [ "concat", "uglify" ]
-        },
+            tasks: [ "clean", "concat", "uglify" ]
+        }
 
         concat: {
             build: {
@@ -31,15 +31,17 @@ module.exports = function(grunt) {
                     'dist/xmljson.min.js': [ 'dist/xmljson.js' ]
                 }]
             }
-        }
+        },
 
+        clean: ['dist'],
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
-    grunt.registerTask('default', ['concat','uglify']);
+    grunt.registerTask('default', ['clean', 'concat','uglify']);
 
 };

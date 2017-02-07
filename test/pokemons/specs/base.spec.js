@@ -1,3 +1,5 @@
+import xmlschema from "xmlschema.js";
+
 // let bulbasaurXml = undefined;
 // let bulbasaurXsd = undefined;
 
@@ -22,6 +24,7 @@ describe("bulbasaur", () => {
         // let result = xmlschema([bulbasaurXsd]).validate(bulbasaurXml);
         // expect(result).toBeDefined();
         // expect(result.valid).toBe(true);
+        console.log(xmlschema);
         expect(true).toBe(true);
     });
 });

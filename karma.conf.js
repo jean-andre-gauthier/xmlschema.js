@@ -31,7 +31,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'source/**/*.js', included: false },
+      // { pattern: 'source/**/*.js', included: false },
+      { pattern: "test/node_modules/@jean-andre-gauthier/xmlschema.js/dist/*.js", included: false, served: true },
       { pattern: 'test/**/*.js', included: true },
       { pattern: 'test/**/*.xml', included: false, served: true, watched: true },
       { pattern: 'test/**/*.xml', included: false, served: true, watched: true }
@@ -54,8 +55,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "source/**/*.js": ["babel"],
-      "test/**/*.js": ["babel"]
+      // "source/**/*.js": ["babel"],
+      "test/!(node_modules)/**/*.js": ["babel"]
     },
 
 
