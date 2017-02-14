@@ -32,10 +32,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // { pattern: 'source/**/*.js', included: false },
-      { pattern: "test/node_modules/@jean-andre-gauthier/xmlschema.js/dist/*.js", included: false, served: true },
+      { pattern: "dist/*.js", included: false, served: true },
+      { pattern: "node_modules/axios/dist/*.js", included: false, served: true },
+      { pattern: "node_modules/jquery/dist/*.js", included: false, served: true },
       { pattern: 'test/**/*.js', included: true },
       { pattern: 'test/**/*.xml', included: false, served: true, watched: true },
-      { pattern: 'test/**/*.xml', included: false, served: true, watched: true }
+      { pattern: 'test/**/*.xsd', included: false, served: true, watched: true }
     ],
 
 

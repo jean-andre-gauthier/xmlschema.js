@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         watch: {
             files: [ "source/*.js" ],
             tasks: [ "clean", "concat", "uglify" ]
-        }
+        },
 
         concat: {
             build: {

@@ -285,9 +285,9 @@ var xmlschema = function (schema) {
                 } else if (xmlLoad) {
                     xmlLoad.then(function () {
                         console.log (xml);
-                        var sl = xml.doc.firstChild.getAttribute("schemaLocation").split(/[\r\n\s]+/)[1];
-                        cb (sl.substring(0, sl.lastIndexOf("/") + 1) + input);
-                    })
+                        var sl = xml.doc.firstChild.getAttribute("xsi:schemaLocation").split(/[\r\n\s]+/)[1];
+                        cb (sl.substring(0, sl.lastIndexOf("/") + 1) + input ? input : "");
+                    });
                 } else {
                     cb();
                 }

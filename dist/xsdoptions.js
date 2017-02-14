@@ -36,6 +36,9 @@ var xmlparser = {
                 } else {
                     deferred.resolve(out);
                 }
+            } else {
+                out.err = "XML could not be parsed, as neither jQuery nor DOMParser are available";
+                deferred.reject(out);
             }
         }
 
@@ -60,6 +63,9 @@ var xmlparser = {
                 xmlString(xstr);
 
                 deferred.resolve(out);
+            } else {
+                out.err = "Unsupported input type: " + typeof input;
+                deferred.reject(out);
             }
 
         } else if (typeof input === "string") {
@@ -187,6 +193,7 @@ var xmlparser = {
         }
     }
 };
+
 function XsSimpleTypeValidator(simpleType, tagname) {
     this.xml = simpleType;
     var restriction = this.xml.getElementsByTagName("restriction")[0];

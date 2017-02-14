@@ -1,30 +1,54 @@
+import axios from "axios";
 import xmlschema from "xmlschema.js";
 
-// let bulbasaurXml = undefined;
-// let bulbasaurXsd = undefined;
+describe("xmlschema", () => {
+    describe("validate", () => {
+        describe("bulbasaur", () => {
+            let bulbasaurXml = undefined;
+            let bulbasaurXsd = undefined;
 
-describe("bulbasaur", () => {
-    // beforeAll((done) => {
-    //     async.map(
-    //         ["/base/test/pokemons/xsd/pokemon.xsd", "/base/test/pokemons/xml/bulbasaur.xml"],
-    //         (url) => {
-    //             let request = new XMLHttpRequest();
-    //             request.open("GET", url);
-    //             request.send();
-    //             return request.response;
-    //         },
-    //         (error, result) => {
-    //             console.log(result);
-    //             bulbasaurXsd = result[0];
-    //             bulbasaurXml = result[1];
-    //         });
-    // });
+            beforeAll((done) => {
+                Promise.all(
+                    [axios.get("/base/test/pokemons/xsd/pokemon.xsd"),
+                        axios.get("/base/test/pokemons/xml/bulbasaur.xml")]
+                ).then(
+                    (values) => {
+                        bulbasaurXsd = values[0].data;
+                        bulbasaurXml = values[1].data;
+                        done();
+                    },
+                    (error) => {
+                        console.log(error);
+                        done();
+                    });
+            });
 
-    it("should work", () => {
-        // let result = xmlschema([bulbasaurXsd]).validate(bulbasaurXml);
-        // expect(result).toBeDefined();
-        // expect(result.valid).toBe(true);
-        console.log(xmlschema);
-        expect(true).toBe(true);
+            it("should return true when validating bulbasaur.xml against pokemon.xsd", (done) => {
+                debugger;
+                xmlschema(bulbasaurXsd).validate(bulbasaurXml).then(
+                    (result) => {
+                        console.log(result);
+                        expect(result).toBeDefined();
+                        expect(result.valid).toBeTrue();
+                        done();
+                    },
+                    (error) => {
+                        console.log(error);
+                        fail();
+                    }
+                );
+            });
+
+            it("should throw an error if the XML parameter is not a string, and neither jQuery nor DomParser are available", (done) => {
+                xmlschema(bulbasaurXsd).validate(bulbasaurXml).then(
+                    (result) => {
+                        fail();
+                    },
+                    (error) => {
+                        done();
+                    }
+                );
+            });
+        });
     });
 });
